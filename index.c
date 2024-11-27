@@ -73,6 +73,44 @@ typedef struct {
      printf("date d_echeance : %02d-%02d-%04d \n",table[i].dt.jour,table[i].dt.mois,table[i].dt.anee);
      }
  }
+ void ModifierTache (){
+
+    if (conteur==0){
+        printf("Il ny a aucune tache a modifier.");
+        return;
+    }
+    int id=0;
+    printf("Saisissez le numero de tache que vous souhaitez modifier de (1 a %d :",conteur);
+    scanf("%d",&id);
+
+    if (id<1 || id>conteur){
+
+        printf("Le numero de tache n est pas valide.");
+        return;
+    }
+    //المهمة المختارة
+
+    tach *selectedTache= &table[id -1];
+
+// تعديل التفاصيل
+    printf(" nouvelle titre :");
+    scanf("%s",selectedTache->titre);
+
+    printf(" nouvelle description :");
+    scanf("%s",selectedTache->description);
+
+    printf(" nouvelle pririorite :");
+    scanf("%s",selectedTache->priorite);
+
+    printf(" nouvelle jour :");
+    scanf("%d",&selectedTache->dt.jour);
+    printf("nouvelle mois :");
+    scanf("%d",&selectedTache->dt.mois);
+    printf(" nouvelle anee :");
+    scanf("%d",&selectedTache->dt.anee);
+
+    printf("La tache a ete modifiee avec succes.");
+}
 
 int main(){
     int choix;
