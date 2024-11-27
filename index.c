@@ -19,7 +19,6 @@ typedef struct {
  tach table[150];
  int conteur = 0;
 
-
  void Ajouter(){
 
      if ( conteur >= 150){
@@ -53,7 +52,6 @@ typedef struct {
      table[conteur]= nouville_tache;
      conteur++;
  }
-
 
  void Afficher(){
 
@@ -113,6 +111,7 @@ typedef struct {
 }
 void supprimerTache(){
 
+
     if (conteur == 0){
 
         printf("Il n y a aucune tache a supprimer.\n");
@@ -135,6 +134,46 @@ void supprimerTache(){
          }
          conteur--;
 }
+void FiltrerTaches(){
+
+    if (conteur == 0){
+
+        printf("Il n y a aucune tache a afficher.\n");
+        return;
+    }
+
+    char pRecherchee[10];
+    printf("Entrez la priorite selon laquelle vous souhaitez filtrer les taches (igh/low).:");
+    scanf("%s",pRecherchee);
+
+    printf("_____________ Taches prioritaires: %s _____________\n",pRecherchee);
+
+    // علم للتحقق من وجود مهام مطابقة
+
+    int found = 0;
+
+    for (int i = 0; i< conteur; i++){
+
+        if (strcmp(table[i].priorite, pRecherchee) == 0){
+
+                // إذا تطابقت الأولويات، اعرض المهمة
+
+          printf("Tache n° %d :\n", i + 1);
+          printf("titre: %s\n", table[i].titre);
+          printf("description: %s\n", table[i].description);
+          printf("date d_echeance %02d _%02d _%04d \n", table[i].dt.jour,table[i].dt.mois,table[i].dt.anee);
+
+          printf("----------------------\n");
+            found = 1;
+
+        }
+    }
+
+    if (!found) {
+        printf("Il n y a pas de taches prioritaires: %s.\n", pRecherchee);
+    }
+}
+
 int main(){
     int choix;
     do {
