@@ -55,6 +55,24 @@ typedef struct {
  }
 
 
+ void Afficher(){
+
+     if (conteur == 0){
+         printf("Il ny a aucune tache a afficher.");
+         return;
+     }
+     printf("\nListe de choses a faire:\n");
+
+     for (int i= 0; i< conteur;i++){
+
+     printf(" Tache : %d\n",i + 1);
+     printf(" titre : %s\n",table[i].titre);
+     printf(" description : %s\n",table[i].description);
+     printf(" pririorite : %s\n",table[i].priorite);
+
+     printf("date d_echeance : %02d-%02d-%04d \n",table[i].dt.jour,table[i].dt.mois,table[i].dt.anee);
+     }
+ }
 
 int main(){
     int choix;
@@ -71,6 +89,9 @@ int main(){
 
         case 1:
          Ajouter();
+         break;
+          case 2:
+         Afficher();
          break;
 
          default:
