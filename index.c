@@ -111,7 +111,30 @@ typedef struct {
 
     printf("La tache a ete modifiee avec succes.");
 }
+void supprimerTache(){
 
+    if (conteur == 0){
+
+        printf("Il n y a aucune tache a supprimer.\n");
+        return;
+    }
+    int idi;
+
+    printf("Entrez le numero de la tache que vous souhaitez supprimer de( 1 a %d) : \n",conteur);
+    scanf("%d",&idi);
+
+     if( idi< 1 || idi> conteur){
+
+         printf("Le numéro de tache n est pas valide.\n");
+         return;
+     }
+         // نقل المهام لتغطية المهمة المحذوفة
+         for( int i = i-1; i < conteur - 1 ; i++){
+
+             table[i] = table[i + 1];
+         }
+         conteur--;
+}
 int main(){
     int choix;
     do {
