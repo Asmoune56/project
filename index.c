@@ -52,7 +52,6 @@ typedef struct {
      table[conteur]= nouville_tache;
      conteur++;
  }
-
  void Afficher(){
 
      if (conteur == 0){
@@ -192,6 +191,17 @@ int main(){
          break;
           case 2:
          Afficher();
+         break;
+          case 3:
+         ModifierTache();
+         break;
+          case 4:
+         supprimerTache();
+         break;
+           case 5:
+         FiltrerTaches();
+         break;
+           case 6:
          break;
 
          default:
